@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.shaunfong.uitoolkit-fieldbinding/Editor/Res/SharedStyle.uss?fileID=7433441132597879392&amp;guid=3c4aabb1d04d7864fad346afb998476f&amp;type=3#SharedStyle" />
+    <ui:GroupBox>
+        <ui:Label text="Field Binding" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 15px; -unity-font-style: none;" />
+        <ui:GroupBox name="Enable" style="display: flex;">
+            <uie:Toolbar class="Toolbar">
+                <uie:ToolbarMenu display-tooltip-when-elided="true" text="Menu" name="menu">
+                    <ui:VisualElement class="unity-toolbar-menu_d_arrow" />
+                </uie:ToolbarMenu>
+                <ui:VisualElement style="flex-grow: 1;" />
+                <uie:ToolbarSearchField focusable="true" name="search" tooltip="Search Field" style="flex-grow: 1; min-width: 15px; max-width: 109px;" />
+                <uie:ToolbarMenu display-tooltip-when-elided="true" name="filter" tooltip="Filter" class="unity-toolbar-menu__arrow ellipsis-btn" />
+            </uie:Toolbar>
+            <ui:ListView focusable="true" reorderable="true" reorder-mode="Animated" name="fields-view" show-add-remove-footer="false" show-alternating-row-backgrounds="ContentOnly" show-border="true" virtualization-method="DynamicHeight" style="max-height: 230px;" />
+        </ui:GroupBox>
+        <ui:GroupBox name="Disable" style="background-color: rgb(36, 36, 36); display: none;">
+            <ui:Label text="Please Assign Source Asset Below" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; color: rgb(255, 212, 76); -unity-font-style: bold;" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

@@ -1,0 +1,54 @@
+.unity-toolbar-menu__arrow {
+    background-image: none;
+    width: 0;
+}
+
+.unity-toolbar-menu_d_arrow {
+    background-image: resource('uipackageresources/images/d_dropdown.png');
+    width: 15px;
+    height: 15px;
+}
+
+.ellipsis-btn.unity-toolbar-menu__arrow {
+    background-image: resource('uibuilderpackageresources/icons/dark/d__menu.png');
+    width: 17px;
+    height: 17px;
+}
+
+.ToolbarBtn {
+    flex-grow: 1;
+    -unity-text-align: upper-center;
+    flex-basis: 1px;
+}
+
+.Toolbar {
+    margin-bottom: 5px;
+}
+
+.unity-group-box {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.unity-list-view__reorderable-handle {
+    width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: 0;
+}
+
+.unity-list-view__reorderable-handle-bar {
+    width: 0;
+}

@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement>
+        <ui:Foldout text="Foldout" value="true">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="Title" />
+            <ui:Button text="Button1" display-tooltip-when-elided="true" name="Button1" />
+            <ui:Toggle label="Toggle" />
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" />
+            <ui:Slider picking-mode="Ignore" label="Slider" value="21.7" high-value="100" />
+            <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="66" high-value="100" />
+            <ui:MinMaxSlider picking-mode="Ignore" label="Min/Max Slider" min-value="10" max-value="12" low-limit="-10" high-limit="40" />
+            <ui:ProgressBar value="22" title="my-progress" />
+            <ui:DropdownField label="Dropdown" index="0" choices="1,2" />
+            <ui:Scroller high-value="100" direction="Horizontal" value="42" />
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>
