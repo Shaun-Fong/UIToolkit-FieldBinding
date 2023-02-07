@@ -12,13 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2bfab490a6c5d4d8a19fdd3c0ebee1, type: 3}
   m_Name: FieldBindingData
   m_EditorClassIdentifier: 
-  Data:
-  - Id: 22356
-    ScriptPath: Assets/BindTest.cs
-    FieldDatas:
-    - FieldName: Title
-      FieldType: Label
-      FieldSelected: 1
-    - FieldName: Button1
-      FieldType: Button
-      FieldSelected: 1
+  Data: []

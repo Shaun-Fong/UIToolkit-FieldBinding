@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -64,7 +65,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 m_LoadedFieldData.Add(new FieldSelection()
                 {
                     FieldName = element.name,
-                    FieldType = element.GetType().Name,
+                    FieldDisplayType = element.GetType().Name,
+                    FieldType = element.GetType().GetTypeFullName(),
                     FieldSelected = (string.IsNullOrEmpty(element.name) || FieldUtility.ValidFieldName(element.name) == false) ? false : true
                 });
             }
@@ -88,14 +90,14 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             FieldBindingData storageBindingData = m_FieldBindingDataManager.GetFieldBindingData(ID);
             for (int i = 0; i < m_LoadedFieldData.Count; i++)
             {
-                if (string.IsNullOrEmpty(m_SearchString) == false && m_LoadedFieldData[i].FieldName.Contains(m_SearchString) == false && m_LoadedFieldData[i].FieldType.Contains(m_SearchString) == false)
+                if (string.IsNullOrEmpty(m_SearchString) == false && m_LoadedFieldData[i].FieldName.Contains(m_SearchString) == false && m_LoadedFieldData[i].FieldDisplayType.Contains(m_SearchString) == false)
                     continue;
 
                 if (force == false && storageBindingData != null)
                 {
                     foreach (var fieldSelection in storageBindingData.FieldDatas)
                     {
-                        if (m_LoadedFieldData[i].FieldName == fieldSelection.FieldName && m_LoadedFieldData[i].FieldType == fieldSelection.FieldType)
+                        if (m_LoadedFieldData[i].FieldName == fieldSelection.FieldName && m_LoadedFieldData[i].FieldDisplayType == fieldSelection.FieldDisplayType)
                         {
                             m_LoadedFieldData[i].FieldSelected = fieldSelection.FieldSelected;
                             break;
@@ -217,7 +219,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             if (m_ElementInfoVisibillityState.HasFlag(ElementInfoVisibilityState.Name | ElementInfoVisibilityState.Type))
             {
                 name.text = $"<color=#93B3F8>{data.FieldName}</color>";
-                type.text = $"<color=#AAAA5B>{data.FieldType}</color>";
+                type.text = $"<color=#AAAA5B>{data.FieldDisplayType}</color>";
             }
             else if (m_ElementInfoVisibillityState.HasFlag(ElementInfoVisibilityState.Name))
             {
@@ -225,7 +227,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             }
             else if (m_ElementInfoVisibillityState.HasFlag(ElementInfoVisibilityState.Type))
             {
-                type.text = $"<color=#AAAA5B>{data.FieldType}</color>";
+                type.text = $"<color=#AAAA5B>{data.FieldDisplayType}</color>";
             }
 
             toggle.value = data.FieldSelected;

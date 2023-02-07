@@ -9,6 +9,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
     public class FieldSelection
     {
         public string FieldName;
+        public string FieldDisplayType;
         public string FieldType;
         public bool FieldSelected;
     }

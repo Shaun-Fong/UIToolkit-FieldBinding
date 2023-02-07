@@ -71,7 +71,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 if (m_Data.FieldDatas[i].FieldSelected == false) continue;
                 content +=
                     (string.IsNullOrEmpty(classNameSpace) ? "    " : "        ") +
-                    $"public UnityEngine.UIElements.{m_Data.FieldDatas[i].FieldType} {m_Data.FieldDatas[i].FieldName}" + " { get; private set; }" +
+                    $"public {m_Data.FieldDatas[i].FieldType} {m_Data.FieldDatas[i].FieldName}" + " { get; private set; }" +
                     (i == m_Data.FieldDatas.Count - 1 ? "" : "\n");
             }
 
@@ -81,7 +81,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 if (m_Data.FieldDatas[i].FieldSelected == false) continue;
                 binding +=
                     (string.IsNullOrEmpty(classNameSpace) ? "        " : "            ") +
-                    $"{m_Data.FieldDatas[i].FieldName} = root.Q<UnityEngine.UIElements.{m_Data.FieldDatas[i].FieldType}>(\"{m_Data.FieldDatas[i].FieldName}\");\r\n";
+                    $"{m_Data.FieldDatas[i].FieldName} = root.Q<{m_Data.FieldDatas[i].FieldType}>(\"{m_Data.FieldDatas[i].FieldName}\");\r\n";
             }
 
             result = result.

@@ -4,7 +4,7 @@
             <ui:Label text="Label" display-tooltip-when-elided="true" name="Title" />
             <ui:Button text="Button1" display-tooltip-when-elided="true" name="Button1" />
             <ui:Toggle label="Toggle" />
-            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" />
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" name="TextField" />
             <ui:Slider picking-mode="Ignore" label="Slider" value="21.7" high-value="100" />
             <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="66" high-value="100" />
             <ui:MinMaxSlider picking-mode="Ignore" label="Min/Max Slider" min-value="10" max-value="12" low-limit="-10" high-limit="40" />

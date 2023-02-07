@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
@@ -64,6 +66,18 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         public static string GetGlobalPath(this string path)
         {
             return (Application.dataPath.Replace("Assets", "") + path).Replace("\\", "/");
+        }
+
+        public static string GetTypeFullName(this Type type)
+        {
+            if (type.GetTypeInfo().DeclaringType == null)
+            {
+                return type.GetTypeInfo().FullName;
+            }
+            else
+            {
+                return GetTypeFullName(type.GetTypeInfo().DeclaringType) + "." + type.Name;
+            }
         }
     }
 
