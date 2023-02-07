@@ -17,22 +17,6 @@ using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace com.shaunfong.UIToolkitFieldBinding.editor
 {
-    [Flags]
-    public enum ElementInfoVisibilityState
-    {
-        Name = 1 << 0,
-        Type = 1 << 1,
-        HideWithoutName = 1 << 2,
-        All = ~0
-    }
-
-    public class FieldSelection
-    {
-        public string FieldName;
-        public string FieldType;
-        public bool FieldSelected;
-    }
-
     [CustomEditor(typeof(UIDocument))]
     [DisallowMultipleComponent]
     public class UIDocumentInspector : UnityEditor.Editor
@@ -43,22 +27,23 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         private VisualElement rootVisualElement;
         private VisualElement fieldBindingVisualElement;
 
-        private Viewport m_ViewPort;
+        private FieldBinding m_FieldBinding;
 
         public override VisualElement CreateInspectorGUI()
         {
+            UIDocument document = (UIDocument)target;
 
             rootVisualElement = new VisualElement();
             fieldBindingVisualElement = new VisualElement();
             rootVisualElement.Add(fieldBindingVisualElement);
 
-            m_ViewPort = new Viewport(fieldBindingVisualElement);
-            m_ViewPort.LoadAllFields(((UIDocument)target).visualTreeAsset);
-            m_ViewPort.RegisterCallbacks();
+            m_FieldBinding = new FieldBinding(document.GetInstanceID(), fieldBindingVisualElement);
+            m_FieldBinding.LoadFieldsData(((UIDocument)target).visualTreeAsset);
+            m_FieldBinding.RegisterCallbacks();
 
             DrawDefaultProperties(rootVisualElement);
 
-            m_ViewPort.RefreshFields();
+            m_FieldBinding.RefreshFieldsList();
 
             return rootVisualElement;
         }
@@ -69,8 +54,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             if (m_TargetVisualTreeAsset != document.visualTreeAsset)
             {
                 m_TargetVisualTreeAsset = document.visualTreeAsset;
-                m_ViewPort.LoadAllFields(m_TargetVisualTreeAsset);
-                m_ViewPort.RefreshFields();
+                m_FieldBinding.LoadFieldsData(m_TargetVisualTreeAsset);
+                m_FieldBinding.RefreshFieldsList();
             }
         }
 

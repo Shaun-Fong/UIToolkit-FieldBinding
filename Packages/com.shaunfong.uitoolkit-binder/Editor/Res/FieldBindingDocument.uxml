@@ -4,7 +4,7 @@
         <ui:Label text="Field Binding" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 15px; -unity-font-style: none;" />
         <ui:GroupBox name="Enable" style="display: flex;">
             <uie:Toolbar class="Toolbar">
-                <uie:ToolbarMenu display-tooltip-when-elided="true" text="Menu" name="menu">
+                <uie:ToolbarMenu display-tooltip-when-elided="true" text="Menu" name="menu" tooltip="Menu">
                     <ui:VisualElement class="unity-toolbar-menu_d_arrow" />
                 </uie:ToolbarMenu>
                 <ui:VisualElement style="flex-grow: 1;" />
