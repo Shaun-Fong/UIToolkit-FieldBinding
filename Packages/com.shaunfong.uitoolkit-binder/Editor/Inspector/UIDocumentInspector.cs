@@ -51,12 +51,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         private void SerializedPropertyChangeCallback(SerializedPropertyChangeEvent evt)
         {
             UIDocument document = (UIDocument)target;
-            if (m_TargetVisualTreeAsset != document.visualTreeAsset)
-            {
-                m_TargetVisualTreeAsset = document.visualTreeAsset;
-                m_FieldBinding.LoadFieldsData(m_TargetVisualTreeAsset);
-                m_FieldBinding.RefreshFieldsList();
-            }
+            m_TargetVisualTreeAsset = document.visualTreeAsset;
+            m_FieldBinding.LoadFieldsData(m_TargetVisualTreeAsset);
+            m_FieldBinding.RefreshFieldsList();
         }
 
         private void DrawDefaultProperties(VisualElement root)
