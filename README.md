@@ -18,4 +18,4 @@ Unity UIToolkit Field Binding
 
 ### Via Unity Package Manager
 Add Package From Git URL
-`https://github.com/Shaun-Fong/UIToolkit-FieldBinding.git?path=/Packages/com.shaunfong.uitoolkit-binder`
+`https://github.com/Shaun-Fong/UIToolkit-FieldBinding.git?path=/Packages/com.shaunfong.uitoolkit-binding`
