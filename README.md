@@ -20,6 +20,7 @@
 - Select the location where the script was generated in popup files save panel.(在弹出的保存窗口中选中脚本保存的位置)
 - Click `Generate`
 - [Example To Use](./Assets/BindTest.cs)
+
 ![image](https://user-images.githubusercontent.com/16713354/217477617-7ae576ad-1d46-447a-9a77-a6db862d0e72.png)
 1. Namespace (命名空间)
 2. Change the location where the script was generated. (更改脚本生成位置)
