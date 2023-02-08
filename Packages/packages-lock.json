@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.shaunfong.uitoolkit-fieldbinding": {
-      "version": "file:com.shaunfong.uitoolkit-binder",
+      "version": "file:com.shaunfong.uitoolkit-binding",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
