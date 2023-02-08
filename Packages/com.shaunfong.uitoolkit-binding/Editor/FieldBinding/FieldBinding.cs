@@ -97,7 +97,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 {
                     foreach (var fieldSelection in storageBindingData.FieldDatas)
                     {
-                        if (m_LoadedFieldData[i].FieldName == fieldSelection.FieldName && m_LoadedFieldData[i].FieldDisplayType == fieldSelection.FieldDisplayType)
+                        if (m_LoadedFieldData[i].FieldName == fieldSelection.FieldName && m_LoadedFieldData[i].FieldType == fieldSelection.FieldType)
                         {
                             m_LoadedFieldData[i].FieldSelected = fieldSelection.FieldSelected;
                             break;

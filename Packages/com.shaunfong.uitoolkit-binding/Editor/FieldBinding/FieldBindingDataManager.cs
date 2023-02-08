@@ -90,7 +90,6 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             data.FieldDatas.Clear();
             foreach (var field in fieldBinding.DisplayFields)
             {
-                if (field.FieldSelected == false) continue;
                 data.FieldDatas.Add(field);
             }
 
@@ -107,7 +106,6 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             //Save Field Data To Disk.
             foreach (var field in fieldBinding.DisplayFields)
             {
-                if (field.FieldSelected == false) continue;
                 data.FieldDatas.Add(field);
             }
             Add(data);
@@ -132,7 +130,6 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             data.FieldDatas.Clear();
             foreach (var field in fieldBinding.DisplayFields)
             {
-                if (field.FieldSelected == false) continue;
                 data.FieldDatas.Add(field);
             }
 
