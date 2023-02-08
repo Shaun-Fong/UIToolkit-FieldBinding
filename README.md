@@ -22,6 +22,7 @@
 - [Example To Use](./Assets/BindTest.cs)
 
 ![image](https://user-images.githubusercontent.com/16713354/217477617-7ae576ad-1d46-447a-9a77-a6db862d0e72.png)
+
 1. Namespace (命名空间)
 2. Change the location where the script was generated. (更改脚本生成位置)
 3. Generate Button. (点击即可生成)
@@ -29,7 +30,9 @@
 5. Script Content Generate preview. (预览)
 
 ### Generate/Save/Save As/Select in Menu 菜单按钮选项
+
 ![image](https://user-images.githubusercontent.com/16713354/217478834-f7189c95-ab32-4350-a3d7-a2417346628f.png)
+
 Click `Menu` and you can see many options
 - `Generate` is for fast generate. `Save File Panel` will popup when you first time generate. (快速生成的按钮)
 - `Save` is for saving selected fileds data to disk. (保存选中字段的数据到硬盘，下次加载会自动选中)
@@ -37,8 +40,11 @@ Click `Menu` and you can see many options
 - `Select` provides a variety of ways to quickly select fields, the most common and default is `ValidName`. (`Select` 提供多种快速选中字段的方式，最常用和默认用的是`ValidName`)
 
 ### Filter 过滤
+
 ![image](https://user-images.githubusercontent.com/16713354/217481441-d85c2580-f2c2-4164-aba8-350cc09aa92b.png)
+
 You can open the `Filter` option by clicking the button in the upper right corner.
+
 你可以通过点击右上角的按钮打开`过滤`选项
 
 ### Valid Fileds? 有效字段
@@ -49,6 +55,7 @@ The `element name` in `UIBuilder` rules are as follows below.Like you normally d
 - Case matters (that is, upper- and lowercase letters). C# is case-sensitive; thus, the names count and Count refer to two different variables.
 - C# keywords can't be used as variable names. Recall that a keyword is a word that is part of the C# language. (A complete list of the C# keywords can be found in Appendix B, "C# Keywords.")
 ![image](https://user-images.githubusercontent.com/16713354/217474726-8eb55b0c-7dfa-43c7-9e15-5edc6d9f8b87.png)
+
 (The field is invalid because the beginning contains invalid characters `-`)
 (字段无效是因为开头有一个`-`符号)
 
