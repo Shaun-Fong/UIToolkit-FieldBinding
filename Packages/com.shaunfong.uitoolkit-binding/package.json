@@ -1,7 +1,7 @@
 {
   "name": "com.shaunfong.uitoolkit-fieldbinding",
   "version": "1.0.1",
-  "displayName": "com.shaunfong.uitoolkit-fieldbinding",
+  "displayName": "UIToolkit-fieldbinding",
   "description": "Code generation for ui toolkit fields.",
   "unity": "2021.3",
   "documentationUrl": "https://github.com/Shaun-Fong/UIToolkit-FieldBinding/wiki",
@@ -16,5 +16,6 @@
     "name": "ShaunFong",
     "email": "ghost_h@foxmail.com",
     "url": "https://github.com/Shaun-Fong"
-  }
+  },
+	"category": "ShaunFong"
 }
