@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -83,15 +84,36 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
     internal static class SettingUtility
     {
-        public static string GetNameSpaceValue()
+        internal static string GetNameSpaceValue()
         {
             return EditorPrefs.GetString(Application.companyName + "." + Application.productName + ".FieldBindingSetting.NameSpace", "");
         }
 
-        public static void SetNameSpaceValue(string value)
+        internal static void SetNameSpaceValue(string value)
         {
             EditorPrefs.SetString(Application.companyName + "." + Application.productName + ".FieldBindingSetting.NameSpace", value);
         }
+
+        internal static string GetInheritClassValue()
+        {
+            return EditorPrefs.GetString(Application.companyName + "." + Application.productName + ".FieldBindingSetting.InheritClass", "MonoBehaviour");
+        }
+
+        public static void SetInheritClassValue(string value)
+        {
+            EditorPrefs.SetString(Application.companyName + "." + Application.productName + ".FieldBindingSetting.InheritClass", value);
+        }
+
+        internal static AccessModifiers GetAccessModifierValue()
+        {
+            return (AccessModifiers)EditorPrefs.GetInt(Application.companyName + "." + Application.productName + ".FieldBindingSetting.AccessModifier", 1 << 0);
+        }
+
+        internal static void SetAccessModifierValue(AccessModifiers value)
+        {
+            EditorPrefs.SetInt(Application.companyName + "." + Application.productName + ".FieldBindingSetting.AccessModifier", (int)value);
+        }
+
 
         internal static int GetVisibillityStateValue()
         {

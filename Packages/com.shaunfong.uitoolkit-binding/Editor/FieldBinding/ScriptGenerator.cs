@@ -22,7 +22,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             Debug.Log($"Generate Script At '{path}'.");
         }
 
-        internal static string GetScriptPreview(FieldBindingData m_Data, string classNameSpace, string className)
+        internal static string GetScriptPreview(FieldBindingData m_Data, string classNameSpace, string inheritClass, AccessModifiers accessModifier, string className)
         {
             string result =
                     "using UnityEngine;\r\n" +
@@ -35,7 +35,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
                 result +=
                     "[RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]\r\n" +
-                    "public partial class {CLASSNAME} : MonoBehaviour\r\n" +
+                    "{ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}\r\n" +
                     "{\r\n" +
                     "{CONTENT}\r\n" +
                     "    public void Bind()\r\n" +
@@ -52,7 +52,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                     "namespace {NAMESPACE}\r\n" +
                     "{\r\n" +
                     "    [RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]\r\n" +
-                    "    public partial class {CLASSNAME} : MonoBehaviour\r\n" +
+                    "    {ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}\r\n" +
                     "    {\r\n" +
                     "{CONTENT}\r\n" +
                     "        public void Bind()\r\n" +
@@ -84,9 +84,38 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                     $"{m_Data.FieldDatas[i].FieldName} = root.Q<{m_Data.FieldDatas[i].FieldType}>(\"{m_Data.FieldDatas[i].FieldName}\");\r\n";
             }
 
+            string accessModifierStr;
+
+            switch (accessModifier)
+            {
+                case AccessModifiers.PUBLIC:
+                    accessModifierStr = "public";
+                    break;
+                case AccessModifiers.PRIVATE:
+                    accessModifierStr = "private";
+                    break;
+                case AccessModifiers.PROTECTED:
+                    accessModifierStr = "protected";
+                    break;
+                case AccessModifiers.INTERNAL:
+                    accessModifierStr = "internal";
+                    break;
+                case AccessModifiers.PROTECTED_INTERNAL:
+                    accessModifierStr = "protected internal";
+                    break;
+                case AccessModifiers.PRIVATE_PROTECTED:
+                    accessModifierStr = "private protected";
+                    break;
+                default:
+                    accessModifierStr = "public";
+                    break;
+            }
+
             result = result.
                 Replace("{NAMESPACE}", classNameSpace).
+                Replace("{ACCESSMODIFIERS}", accessModifierStr).
                 Replace("{CLASSNAME}", className).
+                Replace("{INHERITCLASS}", inheritClass).
                 Replace("{CONTENT}", content).
                 Replace("{BINDING}", binding);
 

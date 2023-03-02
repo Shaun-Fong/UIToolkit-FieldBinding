@@ -136,7 +136,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             string fileName = Path.GetFileNameWithoutExtension(data.ScriptPath);
             string path = Path.Combine(Path.GetDirectoryName(data.ScriptPath.GetGlobalPath()), fileName + "_BindFields.cs");
 
-            string content = ScriptGenerator.GetScriptPreview(data, SettingUtility.GetNameSpaceValue(), fileName);
+            string content = ScriptGenerator.GetScriptPreview(data, SettingUtility.GetNameSpaceValue(), SettingUtility.GetInheritClassValue(), SettingUtility.GetAccessModifierValue(), fileName);
 
             ScriptGenerator.GenerateScript(content, path);
 

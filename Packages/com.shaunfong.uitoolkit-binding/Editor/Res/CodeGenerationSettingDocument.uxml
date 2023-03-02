@@ -5,6 +5,14 @@
             <ui:Label text="NameSpace" display-tooltip-when-elided="true" style="width: 85px; -unity-text-align: middle-center;" />
             <ui:TextField picking-mode="Ignore" name="namespace" binding-path="m_NameSpace" style="flex-grow: 1; height: 100%;" />
         </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: row; height: 25px; margin-bottom: 5px; margin-top: 5px; flex-shrink: 0;">
+            <ui:Label text="InheritClass" display-tooltip-when-elided="true" style="width: 85px; -unity-text-align: middle-center;" />
+            <ui:TextField picking-mode="Ignore" name="inheritclass" binding-path="m_InheritClass" style="flex-grow: 1; height: 100%;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: row; height: 25px; margin-bottom: 5px; margin-top: 5px; flex-shrink: 0;">
+            <ui:Label text="AccessModifier" display-tooltip-when-elided="true" style="width: 85px; -unity-text-align: middle-center;" />
+            <uie:EnumField value="PUBLIC" type="com.shaunfong.UIToolkitFieldBinding.editor.AccessModifiers, com.shaunfong.uitoolkit-fieldbinding.editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" binding-path="m_AccessModifier" name="accessmodifier" style="flex-grow: 1; height: 100%;" />
+        </ui:VisualElement>
         <ui:Button text="Change Script Location" display-tooltip-when-elided="true" name="chaneglocation" style="height: 25px;" />
         <ui:Button text="Generate" display-tooltip-when-elided="true" name="generate" style="height: 25px;" />
         <ui:Label display-tooltip-when-elided="true" name="path" binding-path="m_ScriptPath" style="white-space: normal; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
