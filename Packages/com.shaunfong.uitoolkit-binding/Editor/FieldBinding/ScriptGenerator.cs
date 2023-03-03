@@ -25,43 +25,66 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         internal static string GetScriptPreview(FieldBindingData m_Data, string classNameSpace, string inheritClass, AccessModifiers accessModifier, string className)
         {
             string result =
-                    "using UnityEngine;\r\n" +
-                    "using UnityEngine.UI;\r\n" +
-                    "using UnityEngine.UIElements;\r\n" +
-                    "\r\n";
+                    "using UnityEngine;" +
+                    System.Environment.NewLine +
+                    "using UnityEngine.UI;" +
+                    System.Environment.NewLine +
+                    "using UnityEngine.UIElements;" +
+                    System.Environment.NewLine;
 
             if (string.IsNullOrEmpty(classNameSpace))
             {
 
                 result +=
-                    "[RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]\r\n" +
-                    "{ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}\r\n" +
-                    "{\r\n" +
-                    "{CONTENT}\r\n" +
-                    "    public void Bind()\r\n" +
-                    "    {\r\n" +
-                    "        VisualElement root = gameObject.GetComponent<UIDocument>().rootVisualElement;\r\n" +
+                    "[RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]" +
+                    System.Environment.NewLine +
+                    "{ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}" +
+                    System.Environment.NewLine +
+                    "{" +
+                    System.Environment.NewLine +
+                    "{CONTENT}" +
+                    System.Environment.NewLine +
+                    "    public void Bind()" +
+                    System.Environment.NewLine +
+                    "    {" +
+                    System.Environment.NewLine +
+                    "        VisualElement root = gameObject.GetComponent<UIDocument>().rootVisualElement;" +
+                    System.Environment.NewLine +
                     "{BINDING}" +
-                    "    }\r\n" +
-                    "}\r\n";
+                    "    }" +
+                    System.Environment.NewLine +
+                    "}" +
+                    System.Environment.NewLine;
             }
             else
             {
 
                 result +=
-                    "namespace {NAMESPACE}\r\n" +
-                    "{\r\n" +
-                    "    [RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]\r\n" +
-                    "    {ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}\r\n" +
-                    "    {\r\n" +
-                    "{CONTENT}\r\n" +
-                    "        public void Bind()\r\n" +
-                    "        {\r\n" +
-                    "            VisualElement root = gameObject.GetComponent<UIDocument>().rootVisualElement;\r\n" +
+                    "namespace {NAMESPACE}" +
+                    System.Environment.NewLine +
+                    "{" +
+                    System.Environment.NewLine +
+                    "    [RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]" +
+                    System.Environment.NewLine +
+                    "    {ACCESSMODIFIERS} partial class {CLASSNAME} : {INHERITCLASS}" +
+                    System.Environment.NewLine +
+                    "    {" +
+                    System.Environment.NewLine +
+                    "{CONTENT}" +
+                    System.Environment.NewLine +
+                    "        public void Bind()" +
+                    System.Environment.NewLine +
+                    "        {" +
+                    System.Environment.NewLine +
+                    "            VisualElement root = gameObject.GetComponent<UIDocument>().rootVisualElement;" +
+                    System.Environment.NewLine +
                     "{BINDING}" +
-                    "        }\r\n" +
-                    "    }\r\n" +
-                    "}";
+                    "        }" +
+                    System.Environment.NewLine +
+                    "    }" +
+                    System.Environment.NewLine +
+                    "}" +
+                    System.Environment.NewLine;
             }
 
 
@@ -72,7 +95,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 content +=
                     (string.IsNullOrEmpty(classNameSpace) ? "    " : "        ") +
                     $"public {m_Data.FieldDatas[i].FieldType} {m_Data.FieldDatas[i].FieldName}" + " { get; private set; }" +
-                    (i == m_Data.FieldDatas.Count - 1 ? "" : "\n");
+                    (i == m_Data.FieldDatas.Count - 1 ? "" : System.Environment.NewLine);
             }
 
             string binding = "";
@@ -81,7 +104,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 if (m_Data.FieldDatas[i].FieldSelected == false) continue;
                 binding +=
                     (string.IsNullOrEmpty(classNameSpace) ? "        " : "            ") +
-                    $"{m_Data.FieldDatas[i].FieldName} = root.Q<{m_Data.FieldDatas[i].FieldType}>(\"{m_Data.FieldDatas[i].FieldName}\");\r\n";
+                    $"{m_Data.FieldDatas[i].FieldName} = root.Q<{m_Data.FieldDatas[i].FieldType}>(\"{m_Data.FieldDatas[i].FieldName}\");"+ System.Environment.NewLine;
             }
 
             string accessModifierStr;

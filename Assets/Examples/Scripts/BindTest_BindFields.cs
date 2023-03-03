@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-
 [RequireComponent(typeof(UnityEngine.UIElements.UIDocument))]
 public partial class BindTest : MonoBehaviour
 {
