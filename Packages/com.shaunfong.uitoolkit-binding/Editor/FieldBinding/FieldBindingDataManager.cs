@@ -47,33 +47,13 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
         public static FieldBindingDataManager GetInstance()
         {
-            var assetIDs = AssetDatabase.FindAssets("t:FieldBindingDataManager");
 
-            if (assetIDs.Length != 0)
+            if(ScriptableObjectUtility.CheckExist() == false)
             {
-                if (assetIDs.Length > 1)
-                {
-                    Debug.LogWarning("More than 1 Asset founded, first one will be using.");
-                }
-                return AssetDatabase.LoadAssetAtPath<FieldBindingDataManager>(AssetDatabase.GUIDToAssetPath(assetIDs[0]));
+                ScriptableObjectUtility.CreateNewOne();
             }
 
-            FieldBindingDataManager dataManager = ScriptableObject.CreateInstance<FieldBindingDataManager>();
-
-            string filePath = Path.Combine(Application.dataPath, "Editor", "FieldBindingData.asset");
-
-            if (Directory.Exists(filePath) == false)
-            {
-                Directory.CreateDirectory(filePath);
-            }
-
-            Debug.LogWarning($"Field Binding Data Asset Create In '{filePath}'.");
-
-            AssetDatabase.CreateAsset(dataManager, filePath.Replace(Application.dataPath, "Assets"));
-            AssetDatabase.SaveAssets();
-
-
-            return dataManager;
+            return ScriptableObjectUtility.LoadFromAsset();
 
         }
 
@@ -94,8 +74,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             }
 
             EditorUtility.SetDirty(this);
-
+            ScriptableObjectUtility.SaveAsset(this);
             AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         internal void SaveAs(FieldBinding fieldBinding)
@@ -116,8 +97,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             CodeGenerateSettingEditorWindow.ShowWindow(data);
 
             EditorUtility.SetDirty(this);
-
+            ScriptableObjectUtility.SaveAsset(this);
             AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         internal void Generate(FieldBinding fieldBinding)
@@ -145,9 +127,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             ScriptGenerator.GenerateScript(content, path);
 
             EditorUtility.SetDirty(this);
-
-            AssetDatabase.Refresh();
+            ScriptableObjectUtility.SaveAsset(this);
             AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }

@@ -35,8 +35,55 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         }
     }
 
+    internal static class ScriptableObjectUtility
+    {
+
+
+        public static bool CheckExist()
+        {
+            string assetPath = PathUtility.AssetPath;
+
+            return File.Exists(assetPath);
+        }
+
+        public static void CreateNewOne()
+        {
+
+            if (Directory.Exists(Path.GetDirectoryName(PathUtility.AssetPath)) == false)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(PathUtility.AssetPath));
+            }
+
+            FieldBindingDataManager dataManager = ScriptableObject.CreateInstance<FieldBindingDataManager>();
+            string jsonData = EditorJsonUtility.ToJson(dataManager);
+            File.WriteAllText(PathUtility.AssetPath, jsonData);
+        }
+
+        public static FieldBindingDataManager LoadFromAsset()
+        {
+            if (CheckExist() == false)
+            {
+                CreateNewOne();
+            }
+
+            FieldBindingDataManager dataManager = ScriptableObject.CreateInstance<FieldBindingDataManager>();
+            string jsonData = File.ReadAllText(PathUtility.AssetPath);
+            EditorJsonUtility.FromJsonOverwrite(jsonData, dataManager);
+            return dataManager;
+        }
+
+        public static void SaveAsset(FieldBindingDataManager dataManager)
+        {
+            string jsonData = EditorJsonUtility.ToJson(dataManager);
+            File.WriteAllText(PathUtility.AssetPath, jsonData);
+        }
+
+    }
+
     internal static class PathUtility
     {
+        public static string AssetPath => Path.Combine(Application.dataPath, "..", "ProjectSettings", "Packages", "com.shaunfong.uitoolkit-fieldbinding", "uitoolkit-fieldbinding.json");
+
         public static string GetPackagesRes(string filename)
         {
             return Path.Combine("Packages", "com.shaunfong.uitoolkit-fieldbinding", "Editor", "Res", filename);
