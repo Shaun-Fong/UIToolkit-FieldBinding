@@ -12,4 +12,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2bfab490a6c5d4d8a19fdd3c0ebee1, type: 3}
   m_Name: FieldBindingData
   m_EditorClassIdentifier: 
-  Data: []
+  Data:
+  - Id: 22382
+    ScriptPath: Assets/Examples/Scripts/BindTest.cs
+    FieldDatas:
+    - FieldName: Title
+      FieldDisplayType: Label
+      FieldType: UnityEngine.UIElements.Label
+      FieldSelected: 1
+    - FieldName: Button1
+      FieldDisplayType: Button
+      FieldType: UnityEngine.UIElements.Button
+      FieldSelected: 1
+    - FieldName: unity-checkmark
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: TextField
+      FieldDisplayType: TextField
+      FieldType: UnityEngine.UIElements.TextField
+      FieldSelected: 1
+    - FieldName: unity-text-input
+      FieldDisplayType: TextInput
+      FieldType: UnityEngine.UIElements.TextField.TextInput
+      FieldSelected: 0
+    - FieldName: unity-drag-container
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-tracker
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger-border
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-drag-container
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-tracker
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger-border
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-tracker
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-thumb-min
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-thumb-max
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-progress-bar
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-low-button
+      FieldDisplayType: RepeatButton
+      FieldType: UnityEngine.UIElements.RepeatButton
+      FieldSelected: 0
+    - FieldName: unity-high-button
+      FieldDisplayType: RepeatButton
+      FieldType: UnityEngine.UIElements.RepeatButton
+      FieldSelected: 0
+    - FieldName: unity-slider
+      FieldDisplayType: Slider
+      FieldType: UnityEngine.UIElements.Slider
+      FieldSelected: 0
+    - FieldName: unity-drag-container
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-tracker
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger-border
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0
+    - FieldName: unity-dragger
+      FieldDisplayType: VisualElement
+      FieldType: UnityEngine.UIElements.VisualElement
+      FieldSelected: 0

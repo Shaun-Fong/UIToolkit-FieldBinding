@@ -12,7 +12,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
     {
 
         [SerializeField]
-        private List<FieldBindingData> Data = new List<FieldBindingData>();
+        public List<FieldBindingData> Data = new List<FieldBindingData>();
 
         public bool Exist(int id)
         {
@@ -93,6 +93,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
                 data.FieldDatas.Add(field);
             }
 
+            EditorUtility.SetDirty(this);
+
             AssetDatabase.SaveAssets();
         }
 
@@ -112,6 +114,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
             // Open Code Generation Window.
             CodeGenerateSettingEditorWindow.ShowWindow(data);
+
+            EditorUtility.SetDirty(this);
 
             AssetDatabase.SaveAssets();
         }
@@ -139,6 +143,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             string content = ScriptGenerator.GetScriptPreview(data, SettingUtility.GetNameSpaceValue(), SettingUtility.GetInheritClassValue(), SettingUtility.GetAccessModifierValue(), fileName);
 
             ScriptGenerator.GenerateScript(content, path);
+
+            EditorUtility.SetDirty(this);
 
             AssetDatabase.Refresh();
             AssetDatabase.SaveAssets();

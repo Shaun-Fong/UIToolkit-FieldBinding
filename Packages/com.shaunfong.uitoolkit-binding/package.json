@@ -1,6 +1,6 @@
 {
   "name": "com.shaunfong.uitoolkit-fieldbinding",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "UIToolkit-fieldbinding",
   "description": "Code generation for ui toolkit fields.",
   "unity": "2021.3",
