@@ -1,3 +1,10 @@
+## v1.3.1 (2023-03-11)
+
+### 🧩 Chore:
+
+- add `README.md` , update `asmdef` info.([`735c23e`](https://github.com/Shaun-Fong/UIToolkit-FieldBinding/commit/735c23eb7a3c51d2844b89f28cd78a99333c606e))
+- add `CHANGELOG.md`([`6d60674`](https://github.com/Shaun-Fong/UIToolkit-FieldBinding/commit/6d6067443a51ae2ab301e4fb0254f8acc1e9af38))
+
 ## v1.3.0 (2023-03-11)
 
 ### 🐞 Fix:
