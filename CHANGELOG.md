@@ -1,3 +1,9 @@
+## v1.3.2 (2023-03-11)
+
+### 🐞 Fix:
+
+- fixed missing meta file error.([`e10f8b1`](https://github.com/Shaun-Fong/UIToolkit-FieldBinding/commit/e10f8b151ccfc4a4e5ac2d3523e7f98a57903503))
+
 ## v1.3.1 (2023-03-11)
 
 ### 🧩 Chore:
