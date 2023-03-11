@@ -6,11 +6,13 @@ public partial class BindTest : MonoBehaviour
 {
     public UnityEngine.UIElements.Label Title { get; private set; }
     public UnityEngine.UIElements.Button Button1 { get; private set; }
+    public UnityEngine.UIElements.TextField TextField { get; private set; }
 
     public void Bind()
     {
         VisualElement root = gameObject.GetComponent<UIDocument>().rootVisualElement;
         Title = root.Q<UnityEngine.UIElements.Label>("Title");
         Button1 = root.Q<UnityEngine.UIElements.Button>("Button1");
+        TextField = root.Q<UnityEngine.UIElements.TextField>("TextField");
     }
 }

@@ -8,13 +8,13 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
     [System.Serializable]
     public class FieldBindingData
     {
-        public int Id;
+        public string AssetPath;
         public string ScriptPath;
         public List<FieldSelection> FieldDatas = new List<FieldSelection>();
 
-        public FieldBindingData(int id)
+        public FieldBindingData(string assetPath)
         {
-            Id = id;
+            AssetPath = assetPath;
         }
     }
 }

@@ -37,8 +37,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             fieldBindingVisualElement = new VisualElement();
             rootVisualElement.Add(fieldBindingVisualElement);
 
-            m_FieldBinding = new FieldBinding(document.GetInstanceID(), fieldBindingVisualElement);
-            m_FieldBinding.LoadFieldsData(((UIDocument)target).visualTreeAsset);
+            m_FieldBinding = new FieldBinding(fieldBindingVisualElement);
+            m_FieldBinding.LoadFieldsData(document.visualTreeAsset);
             m_FieldBinding.RegisterCallbacks();
 
             DrawDefaultProperties(rootVisualElement);

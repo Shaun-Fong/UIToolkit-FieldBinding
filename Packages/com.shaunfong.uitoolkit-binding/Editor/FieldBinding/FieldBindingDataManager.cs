@@ -14,24 +14,24 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         [SerializeField]
         public List<FieldBindingData> Data = new List<FieldBindingData>();
 
-        public bool Exist(int id)
+        public bool Exist(string AssetPath)
         {
-            return Data.FindAll((x) => x.Id == id).Count != 0;
+            return Data.FindAll((x) => x.AssetPath == AssetPath).Count != 0;
         }
 
         public void Add(FieldBindingData data)
         {
-            if (Exist(data.Id) == false)
+            if (Exist(data.AssetPath) == false)
             {
                 Data.Add(data);
             }
         }
 
-        public bool Remove(int id)
+        public bool Remove(string AssetPath)
         {
             for (int i = 0; i < Data.Count; i++)
             {
-                if (Data[i].Id == id)
+                if (Data[i].AssetPath == AssetPath)
                 {
                     Data.RemoveAt(i);
                     return true;
@@ -40,15 +40,15 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             return false;
         }
 
-        public FieldBindingData GetFieldBindingData(int id)
+        internal FieldBindingData GetFieldBindingData(string visualTreeAssetPath)
         {
-            return Data.Find((x) => x.Id == id); ;
+            return Data.Find((x) => x.AssetPath == visualTreeAssetPath);
         }
 
         public static FieldBindingDataManager GetInstance()
         {
 
-            if(ScriptableObjectUtility.CheckExist() == false)
+            if (ScriptableObjectUtility.CheckExist() == false)
             {
                 ScriptableObjectUtility.CreateNewOne();
             }
@@ -59,14 +59,14 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
         internal void Save(FieldBinding fieldBinding)
         {
-            if (Exist(fieldBinding.ID) == false)
+            if (Exist(fieldBinding.VisualTreeAssetPath) == false)
             {
                 SaveAs(fieldBinding);
                 return;
             }
 
             // Save Field Data To Disk.
-            FieldBindingData data = GetFieldBindingData(fieldBinding.ID);
+            FieldBindingData data = GetFieldBindingData(fieldBinding.VisualTreeAssetPath);
             data.FieldDatas.Clear();
             foreach (var field in fieldBinding.DisplayFields)
             {
@@ -82,9 +82,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         internal void SaveAs(FieldBinding fieldBinding)
         {
             //Remove Exist Data.
-            Remove(fieldBinding.ID);
+            Remove(fieldBinding.VisualTreeAssetPath);
 
-            FieldBindingData data = new FieldBindingData(fieldBinding.ID);
+            FieldBindingData data = new FieldBindingData(fieldBinding.VisualTreeAssetPath);
 
             //Save Field Data To Disk.
             foreach (var field in fieldBinding.DisplayFields)
@@ -104,9 +104,9 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
         internal void Generate(FieldBinding fieldBinding)
         {
-            FieldBindingData data = GetFieldBindingData(fieldBinding.ID);
+            FieldBindingData data = GetFieldBindingData(fieldBinding.VisualTreeAssetPath);
 
-            if (data == null)
+            if (data == null || File.Exists(data.ScriptPath.GetGlobalPath()) == false)
             {
                 SaveAs(fieldBinding);
                 return;

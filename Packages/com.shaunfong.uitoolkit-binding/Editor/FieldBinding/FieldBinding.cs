@@ -14,7 +14,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
     public class FieldBinding
     {
-        public int ID { get; private set; }
+        public string VisualTreeAssetPath { get; private set; }
         public ElementInfoVisibilityState m_ElementInfoVisibillityState = ElementInfoVisibilityState.All ^ ElementInfoVisibilityState.HideWithoutName ^ ElementInfoVisibilityState.HideSelected ^ ElementInfoVisibilityState.HideNotSelected;
         private List<FieldSelection> m_LoadedFieldData = new List<FieldSelection>();
         public List<FieldSelection> DisplayFields { get; private set; } = new List<FieldSelection>();
@@ -25,9 +25,8 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
         private VisualTreeAsset m_TargetVisualTreeAsset;
         private FieldBindingDataManager m_FieldBindingDataManager;
 
-        public FieldBinding(int id, VisualElement root)
+        public FieldBinding(VisualElement root)
         {
-            ID = id;
             m_FieldBindingVisualElement = root;
 
             //Load VisibilityState Setting
@@ -44,6 +43,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
 
         internal void LoadFieldsData(VisualTreeAsset targetVisualTreeAsset)
         {
+            VisualTreeAssetPath = AssetDatabase.GetAssetPath(targetVisualTreeAsset);
             m_TargetVisualTreeAsset = targetVisualTreeAsset;
 
             if (targetVisualTreeAsset == null)
@@ -87,7 +87,7 @@ namespace com.shaunfong.UIToolkitFieldBinding.editor
             }
 
             DisplayFields.Clear();
-            FieldBindingData storageBindingData = m_FieldBindingDataManager.GetFieldBindingData(ID);
+            FieldBindingData storageBindingData = m_FieldBindingDataManager.GetFieldBindingData(VisualTreeAssetPath);
             for (int i = 0; i < m_LoadedFieldData.Count; i++)
             {
                 if (string.IsNullOrEmpty(m_SearchString) == false && m_LoadedFieldData[i].FieldName.Contains(m_SearchString) == false && m_LoadedFieldData[i].FieldDisplayType.Contains(m_SearchString) == false)
