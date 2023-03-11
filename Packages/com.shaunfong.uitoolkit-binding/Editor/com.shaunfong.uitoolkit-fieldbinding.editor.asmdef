@@ -2,7 +2,9 @@
     "name": "com.shaunfong.uitoolkit-fieldbinding.editor",
     "rootNamespace": "",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
