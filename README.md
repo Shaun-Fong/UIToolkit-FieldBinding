@@ -17,9 +17,10 @@
 ## Usage 使用
 - Assign Source Asset (给上UIDocument的Source Asset)
 - Click `Menu/Generate` (点击`Menu/Generate`)
-- Select the location where the script was generated in popup files save panel.(在弹出的保存窗口中选中脚本保存的位置)
-- Click `Generate`
-- [Example To Use](./Assets/Examples/Scripts/BindTest.cs))
+- Select the location where the script was generated in popup files save panel, in example file is `BindTest`, it will generate `BindTest_BindFields`.(在弹出的保存窗口中选中脚本保存的位置，示例中直接选中`BindTest.cs`脚本即可，将会自动生成名为`BindTest_BindFields`脚本文件)
+- Next time you can click `Generate` for quick regen.(当你做了UI修改之后，下次可以直接点击`Generate`按钮快速进行重新生成绑定脚本)
+- [Example Script](./Assets/Examples/Scripts/BindTest.cs)
+- [Example Binding Script](./Assets/Examples/Scripts/BindTest_BindFields.cs)
 
 ![image](https://user-images.githubusercontent.com/16713354/217477617-7ae576ad-1d46-447a-9a77-a6db862d0e72.png)
 
