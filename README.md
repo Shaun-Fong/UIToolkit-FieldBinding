@@ -2,6 +2,8 @@
   <img src="https://user-images.githubusercontent.com/16713354/217272667-fe624616-0b66-4eee-b6d4-ed63b2225f09.png">
 </p>
 
+**New [binding system](https://forum.unity.com/threads/introducing-the-runtime-bindings-api-in-unity-2023-2.1454221/) is out.(2023.2+)**
+
 ## Binding
 - This little tool can save you a lot of time using the `Q<T>` interface. (I'm so tired of written `Q<T>` over and over again...)
 - 这个小工具可以帮你在使用Unity的UIToolkit获取指定组件的时候节省非常多的时间。
